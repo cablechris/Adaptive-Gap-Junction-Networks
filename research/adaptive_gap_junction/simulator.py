@@ -102,8 +102,6 @@ def apply_disorder(config: SimulationConfig, state: SimulationState, rng: random
     for site in range(len(site_offsets)):
         if spec.kind in (DisorderKind.SITE, DisorderKind.RANDOM_FIELD):
             site_offsets[site] = rng.gauss(0.0, spec.strength)
-        if spec.kind == DisorderKind.DILUTION and rng.random() < spec.strength:
-            state.active_nodes.discard(site)
     for edge in list(edge_scales):
         if spec.kind in (DisorderKind.BOND, DisorderKind.RANDOM_BOND):
             edge_scales[edge] = max(0.0, 1.0 + rng.gauss(0.0, spec.strength))

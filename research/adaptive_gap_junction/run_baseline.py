@@ -7,11 +7,13 @@ from .simulator import run_simulation
 def build_baseline_config() -> SimulationConfig:
     return SimulationConfig(
         lattice_size=16,
+        tau_v=1.0,
+        tau_g=100.0,
         steps=250,
         disorder=DisorderSpec(
-            kind=DisorderKind.RANDOM_FIELD,
-            distribution="gaussian(mean=0,std=W)",
-            strength=0.03,
+            kind=DisorderKind.DILUTION,
+            distribution="bernoulli bond dilution with removal fraction f_b",
+            strength=0.1,
             seed=7,
         ),
         lesion=LesionSpec(
