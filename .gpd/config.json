@@ -1,0 +1,27 @@
+{
+  "model_profile": "numerical",
+  "autonomy": "balanced",
+  "review_cadence": "adaptive",
+  "research_mode": "adaptive",
+  "parallelization": true,
+  "workflow": {
+    "research": true,
+    "plan_checker": true,
+    "verifier": true
+  },
+  "planning": {
+    "commit_docs": false
+  },
+  "execution": {
+    "max_unattended_minutes_per_plan": 45,
+    "max_unattended_minutes_per_wave": 90,
+    "checkpoint_after_n_tasks": 3,
+    "checkpoint_after_first_load_bearing_result": true,
+    "checkpoint_before_downstream_dependent_tasks": true
+  },
+  "git": {
+    "branching_strategy": "none",
+    "phase_branch_template": "gpd/phase-{phase}-{slug}",
+    "milestone_branch_template": "gpd/{milestone}-{slug}"
+  }
+}

@@ -8,7 +8,16 @@ build/
 .venv/
 .env
 *.log
-.gpd/
+.gpd/*
+!.gpd/PROJECT.md
+!.gpd/REQUIREMENTS.md
+!.gpd/ROADMAP.md
+!.gpd/STATE.md
+!.gpd/CONVENTIONS.md
+!.gpd/config.json
+!.gpd/state.json
+!.gpd/intake/
+!.gpd/intake/adaptive-gap-junction-operator-prompt.md
 .ruff_cache/
 .pytest_cache/
 .mypy_cache/

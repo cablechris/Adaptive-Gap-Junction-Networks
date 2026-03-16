@@ -1,0 +1,660 @@
+{
+  "project_reference": {
+    "project_md_updated": "2026-03-16",
+    "core_research_question": "For adaptive gap-junction networks with bistable fast voltage dynamics and slow coupling plasticity, what mathematically controlled regime, if any, supports Lyapunov-like reduction, morphology-conditioned information retention, and falsifiable repair thresholds before nonconservative flux, disorder, topology change, or fast-slow breakdown destroy that description?",
+    "current_focus": "Phase 1: Simulation Foundation"
+  },
+  "project_contract": {
+    "schema_version": 1,
+    "scope": {
+      "question": "What controlled regime, if any, supports Lyapunov-like structure, explicit generative correspondence, nonlinear repair reachability, and dissipation-bounded memory in adaptive gap-junction networks before nonconservative flux, disorder, topology change, or fast-slow breakdown invalidate that description?",
+      "in_scope": [
+        "2D square-lattice fast-slow stochastic model with adaptive gap-junction couplings",
+        "Topology-correct lesion comparisons across sink, edge-sever, and topological-cut classes",
+        "Explicit disorder classification and relevance testing",
+        "Ensemble-based nonlinear reachability, basin geometry, mutual-information decay, and entropy-production analysis",
+        "Three-valued WT/Cryptic/DH macrostate handling or an explicit binary-reduction limitation",
+        "Finite-size threshold studies at L = 16, 32, 64"
+      ],
+      "out_of_scope": [
+        "Wet-lab biological validation",
+        "Inference or belief claims without explicit P(m) and P(V|m)",
+        "Higher-dimensional or long-range-coupling extensions before the nearest-neighbor base case is verified"
+      ],
+      "unresolved_questions": [
+        "Which local plasticity rule Phi(Delta V, s_ij, xi_ij) should be the base case?",
+        "Which coarse-grained voltage feature map phi(V) should define P(V|m) for WT, Cryptic, and DH?",
+        "What reduced-order patch is acceptable for quasipotential estimation if the full lattice is too expensive?"
+      ]
+    },
+    "context_intake": {
+      "must_read_refs": [
+        "prompt-operator-2026-03-16",
+        "repo-gpd-main"
+      ],
+      "must_include_prior_outputs": [
+        ".gpd/intake/adaptive-gap-junction-operator-prompt.md"
+      ],
+      "user_asserted_anchors": [
+        "No global gradient assumption",
+        "No free inference claim",
+        "No free disorder",
+        "No zero-out lesions",
+        "No free memory"
+      ],
+      "known_good_baselines": [],
+      "context_gaps": [
+        "No external literature benchmarks loaded yet",
+        "No base-case plasticity rule selected yet",
+        "No final WT/Cryptic/DH representation selected yet"
+      ],
+      "crucial_inputs": [
+        "User-supplied operator prompt",
+        "Local get-physics-done workflow scaffold"
+      ]
+    },
+    "approach_policy": {
+      "formulations": [
+        "Fast voltage layer with nonlinear double-well or excitable on-site dynamics",
+        "Slow symmetric adaptive conductance layer in the base case",
+        "Unperturbed epsilon anchored to 10^-2 to 10^-3",
+        "Empirical morphology macrostate WT/Cryptic/DH or an explicit binary-reduction limitation",
+        "Nearest-neighbor 2D square-lattice geometry"
+      ],
+      "allowed_estimator_families": [
+        "Ensemble empirical reachability",
+        "Quasipotential estimation",
+        "Minimum-action path methods",
+        "Transition-path statistics",
+        "Mutual-information estimators",
+        "Pathwise KL entropy-production estimators"
+      ],
+      "forbidden_estimator_families": [
+        "Linear Gramian as the primary reachability metric",
+        "FTLE-only basin boundary claims"
+      ],
+      "allowed_fit_families": [
+        "Finite-size scaling with explicit crossover-versus-transition classification",
+        "Asymptotic expansions in epsilon with reported breakdown thresholds"
+      ],
+      "forbidden_fit_families": [
+        "Post hoc variational-objective fitting presented as exact equivalence",
+        "Unlabeled local results generalized globally"
+      ],
+      "stop_and_rethink_conditions": [
+        "A reduced Lyapunov claim requires uncontrolled neglected terms",
+        "A lesion routine conflates sink behavior with topological cuts",
+        "Octanol disorder is modeled as uniform conductance scaling instead of bond dilution",
+        "A memory claim is made without a dissipation number",
+        "Inference language appears before explicit P(m) and P(V|m)"
+      ]
+    },
+    "observables": [
+      {
+        "id": "obs-lyapunov-status",
+        "name": "Lyapunov-structure status",
+        "kind": "classification",
+        "definition": "Whether the deterministic (V, G) dynamics admit a global, local, reduced, or no Lyapunov functional"
+      },
+      {
+        "id": "obs-epsilon-threshold",
+        "name": "Fast-slow breakdown threshold",
+        "kind": "scalar",
+        "definition": "Largest epsilon or forcing amplitude for which the reduced description remains within tolerance"
+      },
+      {
+        "id": "obs-reachability",
+        "name": "Empirical nonlinear reachability",
+        "kind": "curve",
+        "definition": "Ensemble-defined reachability statistic conditioned on attractor neighborhood or basin-sampling ensemble"
+      },
+      {
+        "id": "obs-macrostate-class",
+        "name": "Morphological macrostate classification",
+        "kind": "classification",
+        "definition": "Classification among WT, Cryptic, and DH, with DH treated as a stable non-equilibrium attractor"
+      },
+      {
+        "id": "obs-basin-geometry",
+        "name": "Basin geometry",
+        "kind": "map",
+        "definition": "Quasipotential, minimum-action, or transition-path characterization of attractor basins"
+      },
+      {
+        "id": "obs-info-decay",
+        "name": "Information decay length",
+        "kind": "scalar",
+        "definition": "Empirical spatial decay length extracted from injury-response or macrostate-feature mutual information"
+      },
+      {
+        "id": "obs-entropy-production",
+        "name": "Entropy production rate",
+        "kind": "scalar",
+        "definition": "Pathwise KL divergence rate between forward and time-reversed trajectory ensembles"
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-model-foundation",
+        "statement": "The project defines the adaptive gap-junction model with topology-correct lesions, explicit disorder classes, and documented nondimensional controls.",
+        "observables": [
+          "obs-reachability"
+        ],
+        "deliverables": [
+          "deliv-codebase",
+          "deliv-phase1-note"
+        ],
+        "acceptance_tests": [
+          "test-lesion-taxonomy"
+        ],
+        "references": [
+          "prompt-operator-2026-03-16"
+        ]
+      },
+      {
+        "id": "claim-lyapunov-status",
+        "statement": "The project proves, disproves, or brackets the regime of Lyapunov-like structure and reports obstruction terms and breakdown thresholds.",
+        "observables": [
+          "obs-lyapunov-status",
+          "obs-epsilon-threshold"
+        ],
+        "deliverables": [
+          "deliv-lyapunov-note",
+          "deliv-summary-table"
+        ],
+        "acceptance_tests": [
+          "test-lyapunov-classification"
+        ],
+        "references": [
+          "prompt-operator-2026-03-16"
+        ]
+      },
+      {
+        "id": "claim-macrostate-handling",
+        "statement": "The project either represents the empirical WT/Cryptic/DH macrostate explicitly or labels any binary reduction as a scope limitation.",
+        "observables": [
+          "obs-macrostate-class"
+        ],
+        "deliverables": [
+          "deliv-phase1-note",
+          "deliv-summary-table"
+        ],
+        "acceptance_tests": [
+          "test-macrostate-scope"
+        ],
+        "references": [
+          "prompt-operator-2026-03-16"
+        ]
+      },
+      {
+        "id": "claim-nonlinear-propagation",
+        "statement": "Empirical reachability, basin geometry, and information decay are measured separately and compared directly rather than inferred from linear surrogates.",
+        "observables": [
+          "obs-reachability",
+          "obs-basin-geometry",
+          "obs-info-decay"
+        ],
+        "deliverables": [
+          "deliv-reachability-report",
+          "deliv-figure-suite"
+        ],
+        "acceptance_tests": [
+          "test-reachability-ensemble",
+          "test-basin-method"
+        ],
+        "references": [
+          "prompt-operator-2026-03-16"
+        ]
+      },
+      {
+        "id": "claim-bond-dilution-threshold",
+        "statement": "Octanol-style blockade is modeled as bond dilution and the polarity-disruption threshold is tested against the 2D square-lattice bond-percolation point p_c ~ 0.5.",
+        "observables": [
+          "obs-reachability"
+        ],
+        "deliverables": [
+          "deliv-reachability-report",
+          "deliv-figure-suite",
+          "deliv-summary-table"
+        ],
+        "acceptance_tests": [
+          "test-bond-percolation-threshold"
+        ],
+        "references": [
+          "prompt-operator-2026-03-16"
+        ]
+      },
+      {
+        "id": "claim-thermodynamic-cost",
+        "statement": "Morphological memory or repair-fidelity claims are bounded by measured entropy production from forward and reverse trajectory data.",
+        "observables": [
+          "obs-entropy-production"
+        ],
+        "deliverables": [
+          "deliv-entropy-report",
+          "deliv-summary-table"
+        ],
+        "acceptance_tests": [
+          "test-entropy-forward-reverse"
+        ],
+        "references": [
+          "prompt-operator-2026-03-16"
+        ]
+      }
+    ],
+    "deliverables": [
+      {
+        "id": "deliv-codebase",
+        "kind": "code",
+        "path": "src/",
+        "description": "Python codebase for simulation, lesions, reachability, basin analysis, MI estimation, entropy production, and parameter sweeps",
+        "must_contain": [
+          "topology-correct lesion routines",
+          "disorder hooks",
+          "ensemble reachability tooling",
+          "entropy-production estimator"
+        ]
+      },
+      {
+        "id": "deliv-phase1-note",
+        "kind": "note",
+        "path": ".gpd/phases/01-simulation-foundation/",
+        "description": "Phase 1 model definition and baseline simulation note",
+        "must_contain": [
+          "boundary conditions",
+          "lesion classes",
+          "noise specification",
+          "disorder classification"
+        ]
+      },
+      {
+        "id": "deliv-lyapunov-note",
+        "kind": "derivation",
+        "path": "docs/derivations/lyapunov-obstruction.tex",
+        "description": "Derivation of Lyapunov structure, obstruction terms, and epsilon corrections",
+        "must_contain": [
+          "assumption list",
+          "obstruction terms",
+          "breakdown threshold"
+        ]
+      },
+      {
+        "id": "deliv-reachability-report",
+        "kind": "report",
+        "path": "docs/analysis/reachability-basin-information.md",
+        "description": "Ensemble-defined reachability, basin geometry, and information-decay comparison",
+        "must_contain": [
+          "Ensemble A parameters",
+          "Ensemble B parameters",
+          "basin method",
+          "empirical decay length"
+        ]
+      },
+      {
+        "id": "deliv-entropy-report",
+        "kind": "report",
+        "path": "docs/analysis/entropy-production.md",
+        "description": "Pathwise entropy-production analysis from forward and reverse trajectory ensembles",
+        "must_contain": [
+          "forward ensemble definition",
+          "reverse ensemble definition",
+          "sampling interval sensitivity"
+        ]
+      },
+      {
+        "id": "deliv-figure-suite",
+        "kind": "figure",
+        "path": "figures/",
+        "description": "Required figure suite for threshold, reachability, basin, MI, entropy, and epsilon-regime results",
+        "must_contain": [
+          "phase diagrams",
+          "lesion comparisons",
+          "reachability maps",
+          "MI decay plots",
+          "entropy-vs-memory plots"
+        ]
+      },
+      {
+        "id": "deliv-summary-table",
+        "kind": "table",
+        "path": "docs/summary/claim-status-table.md",
+        "description": "Summary table listing claim, mathematical status, assumptions, disorder dependence, energetic cost, biological interpretation, and falsifiability",
+        "must_contain": [
+          "claim",
+          "mathematical status",
+          "assumptions",
+          "energetic cost",
+          "falsifiability"
+        ]
+      }
+    ],
+    "acceptance_tests": [
+      {
+        "id": "test-lesion-taxonomy",
+        "subject": "claim-model-foundation",
+        "kind": "consistency",
+        "procedure": "Audit Phase 1 artifacts to verify sink, edge-sever, and topological-cut lesions are separate implementations with graph surgery used only for topological cuts.",
+        "pass_condition": "All lesion classes are explicitly implemented and zero-out lesions are not presented as cuts.",
+        "evidence_required": [
+          "deliv-codebase",
+          "deliv-phase1-note"
+        ],
+        "automation": "hybrid"
+      },
+      {
+        "id": "test-lyapunov-classification",
+        "subject": "claim-lyapunov-status",
+        "kind": "human_review",
+        "procedure": "Review the derivation to confirm whether Lyapunov structure is proved, disproved, or bracketed, and verify that the conclusion is labeled by mathematical status.",
+        "pass_condition": "The derivation gives a precise classification with explicit operating assumptions and no hidden global generalization.",
+        "evidence_required": [
+          "deliv-lyapunov-note",
+          "deliv-summary-table"
+        ],
+        "automation": "human"
+      },
+      {
+        "id": "test-macrostate-scope",
+        "subject": "claim-macrostate-handling",
+        "kind": "consistency",
+        "procedure": "Verify that the project either implements WT/Cryptic/DH explicitly or marks any binary reduction as a scope limitation in the analysis artifacts.",
+        "pass_condition": "No binary macrostate reduction is used silently.",
+        "evidence_required": [
+          "deliv-phase1-note",
+          "deliv-summary-table"
+        ],
+        "automation": "human"
+      },
+      {
+        "id": "test-reachability-ensemble",
+        "subject": "claim-nonlinear-propagation",
+        "kind": "reproducibility",
+        "procedure": "Check that Ensemble A and Ensemble B parameters are saved numerically and used in the reported reachability analysis.",
+        "pass_condition": "All reported reachability results have explicit ensemble metadata with initial-condition distribution, perturbation amplitude, duration, horizon, and trajectory count.",
+        "evidence_required": [
+          "deliv-reachability-report",
+          "deliv-codebase"
+        ],
+        "automation": "hybrid"
+      },
+      {
+        "id": "test-basin-method",
+        "subject": "claim-nonlinear-propagation",
+        "kind": "consistency",
+        "procedure": "Verify that basin claims are backed by quasipotential, minimum-action, or transition-path statistics rather than FTLEs alone.",
+        "pass_condition": "No basin-boundary conclusion rests solely on FTLE calculations.",
+        "evidence_required": [
+          "deliv-reachability-report",
+          "deliv-figure-suite"
+        ],
+        "automation": "human"
+      },
+      {
+        "id": "test-bond-percolation-threshold",
+        "subject": "claim-bond-dilution-threshold",
+        "kind": "cross_method",
+        "procedure": "Compare the polarity-disruption threshold under bond dilution against connectivity and cluster-spanning observables and the 2D square-lattice bond-percolation point p_c ~ 0.5.",
+        "pass_condition": "The project states whether the observed threshold coincides with, is dressed by, or is distinct from p_c ~ 0.5.",
+        "evidence_required": [
+          "deliv-reachability-report",
+          "deliv-figure-suite",
+          "deliv-summary-table"
+        ],
+        "automation": "hybrid"
+      },
+      {
+        "id": "test-entropy-forward-reverse",
+        "subject": "claim-thermodynamic-cost",
+        "kind": "consistency",
+        "procedure": "Audit the entropy-production estimator to ensure forward and reverse path ensembles are defined and Delta t sensitivity is reported.",
+        "pass_condition": "Entropy-production results include forward/reverse ensemble definitions, sampling interval, and a dissipation bound tied to any memory claim.",
+        "evidence_required": [
+          "deliv-entropy-report",
+          "deliv-summary-table"
+        ],
+        "automation": "human"
+      }
+    ],
+    "references": [
+      {
+        "id": "prompt-operator-2026-03-16",
+        "kind": "user_anchor",
+        "locator": ".gpd/intake/adaptive-gap-junction-operator-prompt.md",
+        "aliases": [
+          "adaptive-gap-junction operator prompt"
+        ],
+        "role": "definition",
+        "why_it_matters": "Defines the mandatory model, verification, and interpretation constraints for the entire project.",
+        "applies_to": [
+          "claim-model-foundation",
+          "claim-lyapunov-status",
+          "claim-macrostate-handling",
+          "claim-nonlinear-propagation",
+          "claim-bond-dilution-threshold",
+          "claim-thermodynamic-cost"
+        ],
+        "carry_forward_to": [
+          "planning",
+          "execution",
+          "verification",
+          "writing"
+        ],
+        "must_surface": true,
+        "required_actions": [
+          "read",
+          "use",
+          "avoid"
+        ]
+      },
+      {
+        "id": "repo-gpd-main",
+        "kind": "prior_artifact",
+        "locator": "README.md",
+        "aliases": [
+          "get-physics-done local checkout"
+        ],
+        "role": "method",
+        "why_it_matters": "Provides the project scaffold and workflow conventions used to organize the experiment.",
+        "applies_to": [
+          "claim-model-foundation"
+        ],
+        "carry_forward_to": [
+          "planning",
+          "execution"
+        ],
+        "must_surface": false,
+        "required_actions": [
+          "use"
+        ]
+      }
+    ],
+    "forbidden_proxies": [
+      {
+        "id": "fp-global-gradient",
+        "subject": "claim-lyapunov-status",
+        "proxy": "Assuming joint (V, G) dynamics are globally gradient without proof",
+        "reason": "The core mathematical question is whether and where gradient structure fails."
+      },
+      {
+        "id": "fp-zero-out-cut",
+        "subject": "claim-model-foundation",
+        "proxy": "Treating V_i = 0 node clamping as a topological cut",
+        "reason": "Zeroing creates a sink rather than removing graph connectivity."
+      },
+      {
+        "id": "fp-binary-silence",
+        "subject": "claim-macrostate-handling",
+        "proxy": "Collapsing WT/Cryptic/DH to a binary macrostate without stating the loss explicitly",
+        "reason": "The empirical macrostate is three-valued and DH is not a transient."
+      },
+      {
+        "id": "fp-linear-gramian",
+        "subject": "claim-nonlinear-propagation",
+        "proxy": "Using a linear Gramian as the primary reachability metric",
+        "reason": "The voltage dynamics are nonlinear and bistable, so linear reachability is not the primary quantity."
+      },
+      {
+        "id": "fp-uniform-octanol",
+        "subject": "claim-bond-dilution-threshold",
+        "proxy": "Modeling octanol blockade as uniform conductance scaling",
+        "reason": "The injected empirical constraint classifies octanol blockade as bond dilution."
+      },
+      {
+        "id": "fp-ftle-basin",
+        "subject": "claim-nonlinear-propagation",
+        "proxy": "Presenting FTLE ridges as basin boundaries",
+        "reason": "FTLEs indicate local sensitivity, not basin structure."
+      },
+      {
+        "id": "fp-free-memory",
+        "subject": "claim-thermodynamic-cost",
+        "proxy": "Claiming morphological memory without a dissipation estimate",
+        "reason": "The operator prompt requires a measured entropy-production number for memory claims."
+      }
+    ],
+    "links": [
+      {
+        "id": "link-01",
+        "source": "deliv-phase1-note",
+        "target": "claim-model-foundation",
+        "relation": "supports",
+        "verified_by": [
+          "test-lesion-taxonomy"
+        ]
+      },
+      {
+        "id": "link-02",
+        "source": "deliv-lyapunov-note",
+        "target": "claim-lyapunov-status",
+        "relation": "supports",
+        "verified_by": [
+          "test-lyapunov-classification"
+        ]
+      },
+      {
+        "id": "link-02b",
+        "source": "deliv-phase1-note",
+        "target": "claim-macrostate-handling",
+        "relation": "supports",
+        "verified_by": [
+          "test-macrostate-scope"
+        ]
+      },
+      {
+        "id": "link-03",
+        "source": "deliv-reachability-report",
+        "target": "claim-nonlinear-propagation",
+        "relation": "supports",
+        "verified_by": [
+          "test-reachability-ensemble",
+          "test-basin-method"
+        ]
+      },
+      {
+        "id": "link-03b",
+        "source": "deliv-reachability-report",
+        "target": "claim-bond-dilution-threshold",
+        "relation": "supports",
+        "verified_by": [
+          "test-bond-percolation-threshold"
+        ]
+      },
+      {
+        "id": "link-04",
+        "source": "deliv-entropy-report",
+        "target": "claim-thermodynamic-cost",
+        "relation": "supports",
+        "verified_by": [
+          "test-entropy-forward-reverse"
+        ]
+      }
+    ],
+    "uncertainty_markers": {
+      "weakest_anchors": [
+        "No external literature benchmark has been loaded yet for disorder relevance, quasipotential practice, or entropy-production comparison"
+      ],
+      "unvalidated_assumptions": [
+        "A tractable explicit WT/Cryptic/DH representation can be implemented without overfitting the on-site potential",
+        "A reduced-order patch can preserve the basin geometry relevant to the full lattice"
+      ],
+      "competing_explanations": [
+        "The repair threshold may be a dressed percolation/connectivity transition rather than a distinct adaptive phenomenon",
+        "The WT/Cryptic/DH classification may require hidden slow variables beyond voltage alone"
+      ],
+      "disconfirming_observations": [
+        "Reachability, basin geometry, and information decay do not co-vary across the same parameter sweeps",
+        "Reduced Lyapunov structure breaks down before the regime where simulated repair signatures appear",
+        "Bond-dilution threshold does not track the expected p_c ~ 0.5 comparison in any clear way"
+      ]
+    }
+  },
+  "position": {
+    "current_phase": "01",
+    "current_phase_name": "Simulation Foundation",
+    "total_phases": 7,
+    "current_plan": "1",
+    "total_plans_in_phase": 3,
+    "status": "Ready to plan",
+    "last_activity": "2026-03-16",
+    "last_activity_desc": "Bootstrapped the project workspace and injected empirical constraints on timescales, macrostate structure, and bond dilution.",
+    "progress_percent": 0
+  },
+  "active_calculations": [],
+  "intermediate_results": [],
+  "open_questions": [
+    "Which local plasticity rule Phi(Delta V, s_ij, xi_ij) should define the base case?",
+    "Which coarse-grained feature map phi(V) is expressive enough for P(V|m) without post hoc fitting and while separating WT, Cryptic, and DH?",
+    "What reduced patch size is acceptable for basin-geometry estimation if the full lattice is too expensive?"
+  ],
+  "performance_metrics": {
+    "rows": [
+      {
+        "label": "bootstrap",
+        "duration": "-",
+        "tasks": "1",
+        "files": "8"
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "phase": "00",
+      "summary": "Use the supplied operator prompt as the governing scoping contract.",
+      "rationale": "It contains the strongest domain constraints and explicit success criteria."
+    },
+    {
+      "phase": "00",
+      "summary": "Start without external literature anchors.",
+      "rationale": "Avoid inventing benchmark references before they are actually loaded and checked."
+    }
+  ],
+  "approximations": [],
+  "convention_lock": {
+    "natural_units": "Lattice units with nondimensional control parameters",
+    "coordinate_system": "2D square lattice with nearest-neighbor coupling",
+    "spin_basis": "Binary head-tail polarity macrostate when needed",
+    "state_normalization": "Probability distributions normalized to one",
+    "coupling_convention": "Symmetric base case G_ij = G_ji",
+    "index_positioning": "Sites i,j and edges (i,j) on a square lattice",
+    "time_ordering": "Forward and time-reversed path ensembles for thermodynamic estimators",
+    "custom_conventions": {
+      "lesion_convention": "Sink, edge-sever, and topological cut are distinct classes",
+      "reachability_convention": "Empirical ensemble reachability is primary",
+      "basin_convention": "FTLE is not a basin-boundary estimator",
+      "result_status_convention": "All conclusions labeled by mathematical status"
+    }
+  },
+  "propagated_uncertainties": [],
+  "pending_todos": [],
+  "blockers": [
+    "No external literature benchmarks loaded yet",
+    "Base-case plasticity rule not selected yet",
+    "Coarse-grained feature map phi(V) not selected yet",
+    "WT/Cryptic/DH representation not finalized yet"
+  ],
+  "session": {
+    "last_date": "2026-03-16",
+    "stopped_at": "Project bootstrap complete; Phase 1 ready to plan",
+    "resume_file": ".gpd/ROADMAP.md"
+  }
+}
