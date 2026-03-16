@@ -5,7 +5,14 @@ from enum import StrEnum
 
 
 class PotentialKind(StrEnum):
+    # WT / Cryptic / DH support will require an explicit three-well or hybrid
+    # slow-variable extension here. The current double-well model is only a
+    # voltage-surrogate foundation.
     DOUBLE_WELL = "double_well"
+
+
+class InitialConditionKind(StrEnum):
+    ANTERIOR_POSTERIOR = "anterior_posterior"
 
 
 class DisorderKind(StrEnum):
@@ -55,6 +62,10 @@ class SimulationConfig:
     tau_v: float = 1.0
     tau_g: float = 20.0
     potential_kind: PotentialKind = PotentialKind.DOUBLE_WELL
+    initial_condition: InitialConditionKind = InitialConditionKind.ANTERIOR_POSTERIOR
+    polarity_axis: str = "x"
+    anterior_voltage: float = 1.0
+    posterior_voltage: float = -1.0
     well_linear: float = 1.0
     well_cubic: float = 1.0
     base_conductance: float = 0.35
