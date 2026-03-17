@@ -15,6 +15,12 @@ Current scope:
 
 This is not yet the full experiment. It is a foundation for Phase 1 implementation and later Phase 2-6 analysis.
 
+Recommended reading order for the current state of the project:
+
+- `DISCUSSION.md` for the short scientific summary
+- `../../docs/derivations/lyapunov-obstruction.md` for the Phase 2 Lyapunov and obstruction analysis
+- `../../docs/derivations/inference-correspondence.md` for the Phase 3 correspondence result
+
 Current runnable entry points:
 
 - `python -m research.adaptive_gap_junction.run_baseline`
