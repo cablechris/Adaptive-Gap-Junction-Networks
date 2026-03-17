@@ -22,7 +22,35 @@ def build_initial_voltages(config: SimulationConfig, active_nodes: set[int]) -> 
     return voltages
 
 
-def initial_state(config: SimulationConfig) -> tuple[list[float], dict[tuple[int, int], float], set[int], set[int], dict[int, tuple[int, ...]]]:
+def build_polarity_target(config: SimulationConfig, active_nodes: set[int]) -> list[float]:
+    node_count = config.lattice_size * config.lattice_size
+    target = [0.0 for _ in range(node_count)]
+    if not config.polarity_field.enabled:
+        return target
+
+    for node in range(node_count):
+        if node not in active_nodes:
+            continue
+        row, col = divmod(node, config.lattice_size)
+        coordinate = col if config.polarity_axis == "x" else row
+        if coordinate < config.lattice_size / 2:
+            target[node] = -config.polarity_field.amplitude
+        else:
+            target[node] = config.polarity_field.amplitude
+    return target
+
+
+def initial_state(
+    config: SimulationConfig,
+) -> tuple[
+    list[float],
+    list[float],
+    list[float],
+    dict[tuple[int, int], float],
+    set[int],
+    set[int],
+    dict[int, tuple[int, ...]],
+]:
     node_count = config.lattice_size * config.lattice_size
     neighbors = build_square_neighbors(config.lattice_size)
     active_nodes = set(range(node_count))
@@ -54,4 +82,6 @@ def initial_state(config: SimulationConfig) -> tuple[list[float], dict[tuple[int
         updated_neighbors[site] = tuple(filtered)
 
     voltages = build_initial_voltages(config, active_nodes)
-    return voltages, conductances, active_nodes, sink_nodes, updated_neighbors
+    polarity_target = build_polarity_target(config, active_nodes)
+    polarity_field = list(polarity_target)
+    return voltages, polarity_field, polarity_target, conductances, active_nodes, sink_nodes, updated_neighbors

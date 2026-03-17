@@ -12,6 +12,7 @@ from .model import SimulationConfig
 @dataclass(slots=True)
 class SimulationState:
     voltages: list[float]
+    polarity_field: list[float]
     conductances: dict[tuple[int, int], float]
     active_nodes: set[int]
     sink_nodes: set[int]
@@ -20,14 +21,16 @@ class SimulationState:
 
 def run_simulation(config: SimulationConfig) -> list[SimulationState]:
     rng = random.Random(config.disorder.seed)
-    voltages, conductances, active_nodes, sink_nodes, neighbors = initial_state(config)
+    voltages, polarity_field, polarity_target, conductances, active_nodes, sink_nodes, neighbors = initial_state(config)
     site_offsets, edge_scales = apply_disorder(config, voltages, conductances, rng)
     conductances, neighbors = apply_quenched_edge_removals(conductances, neighbors, edge_scales)
     history: list[SimulationState] = []
     for _ in range(config.steps):
-        voltages, conductances = step(
+        voltages, polarity_field, conductances = step(
             config=config,
             voltages=voltages,
+            polarity_field=polarity_field,
+            polarity_target=polarity_target,
             conductances=conductances,
             active_nodes=active_nodes,
             sink_nodes=sink_nodes,
@@ -39,6 +42,7 @@ def run_simulation(config: SimulationConfig) -> list[SimulationState]:
         history.append(
             SimulationState(
                 voltages=list(voltages),
+                polarity_field=list(polarity_field),
                 conductances=dict(conductances),
                 active_nodes=set(active_nodes),
                 sink_nodes=set(sink_nodes),

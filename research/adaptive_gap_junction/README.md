@@ -8,6 +8,7 @@ Current scope:
 - explicit lesion taxonomy: sink, edge-sever, topological cut
 - explicit disorder taxonomy
 - double-well fast voltage dynamics
+- coarse-grained WT / Cryptic / DH morphology readout
 - symmetric adaptive conductance dynamics
 - stable anterior/posterior initialization near the two voltage wells
 - Euler-Maruyama stepping for exploratory Phase 1 runs
@@ -18,14 +19,16 @@ Current runnable entry points:
 
 - `python -m research.adaptive_gap_junction.run_baseline`
 - `python -m research.adaptive_gap_junction.run_bond_dilution_sweep`
+- `python -m research.adaptive_gap_junction.run_edge_sever_recovery_sweep`
+- `python -m research.adaptive_gap_junction.run_sink_recovery_sweep`
 
 The bond-dilution sweep currently uses an explicit surrogate for polarity disruption:
 
-- order parameter: `abs(mean voltage)`
-- disruption criterion: final `abs(mean voltage)` falls below 50% of the undiluted baseline at the same `L`
+- order parameter: polarity contrast `mean(V_right) - mean(V_left)`
+- disruption criterion: final `abs(polarity contrast)` falls below 50% of the undiluted baseline at the same `L`
 
 This is a temporary operational definition until the WT / Cryptic / DH macrostate classifier is implemented.
 
 Explicit limitation:
 
-- WT / Cryptic / DH is not yet implemented as a three-state macrostate. The current code uses a voltage-based binary surrogate and flags that limitation in the sweep metadata.
+- WT / Cryptic / DH is currently implemented only as a coarse-grained posterior-depolarization surrogate, not as a true three-well or hybrid dynamical model.

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from .morphology import classify_macrostate
 from .model import DisorderKind, DisorderSpec, LesionKind, LesionSpec, SimulationConfig
 from .simulator import run_simulation
 
@@ -29,11 +30,14 @@ def main() -> None:
     history = run_simulation(config)
     final_state = history[-1]
     mean_voltage = sum(final_state.voltages) / len(final_state.voltages)
+    macrostate = classify_macrostate(final_state.voltages, config)
     print(f"steps={config.steps}")
     print(f"epsilon={config.epsilon:.4f}")
     print(f"active_nodes={len(final_state.active_nodes)}")
     print(f"sink_nodes={len(final_state.sink_nodes)}")
     print(f"mean_voltage={mean_voltage:.6f}")
+    print(f"macrostate={macrostate.macrostate}")
+    print(f"dh_propensity={macrostate.features.dh_propensity:.3f}")
 
 
 if __name__ == "__main__":

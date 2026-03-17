@@ -15,6 +15,12 @@ class InitialConditionKind(StrEnum):
     ANTERIOR_POSTERIOR = "anterior_posterior"
 
 
+class MacrostateKind(StrEnum):
+    WT = "wt"
+    CRYPTIC = "cryptic"
+    DH = "dh"
+
+
 class DisorderKind(StrEnum):
     NONE = "none"
     SITE = "site"
@@ -57,6 +63,13 @@ class PlasticitySpec:
 
 
 @dataclass(slots=True)
+class PolarityFieldSpec:
+    enabled: bool = True
+    amplitude: float = 0.15
+    tau_h: float = 2_000.0
+
+
+@dataclass(slots=True)
 class SimulationConfig:
     lattice_size: int = 16
     tau_v: float = 1.0
@@ -77,6 +90,7 @@ class SimulationConfig:
     disorder: DisorderSpec = field(default_factory=DisorderSpec)
     lesion: LesionSpec = field(default_factory=LesionSpec)
     plasticity: PlasticitySpec = field(default_factory=PlasticitySpec)
+    polarity_field: PolarityFieldSpec = field(default_factory=PolarityFieldSpec)
 
     @property
     def epsilon(self) -> float:
